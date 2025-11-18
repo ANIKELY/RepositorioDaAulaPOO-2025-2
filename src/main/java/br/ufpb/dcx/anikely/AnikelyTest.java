@@ -1,4 +1,4 @@
-package br.ufpb.br.anikely;
+package br.ufpb.dcx.anikely;
 
 public class AnikelyTest {
     void main (){

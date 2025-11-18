@@ -1,4 +1,4 @@
-package br.ufpb.br.anikely.SistemaDeEstoqueDeSupermercado;
+package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 
 import javax.swing.JOptionPane;
 
