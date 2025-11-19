@@ -1,6 +1,8 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MenuEstoqueDeSuperMercado {
@@ -38,8 +40,18 @@ public class MenuEstoqueDeSuperMercado {
                     break;
 
                 case 2 :
-                    JOptionPane.showMessageDialog(null, "Lista de produtos no estoque: \n "
-                            + sistema.listarProdutos() + "\n");
+                    List<Produto> listaDeprodutos = new ArrayList<>();
+                    if (sistema.listarProdutos().isEmpty()){
+                        JOptionPane.showMessageDialog(null,"Não há produtos no estoque para listar");
+                    }else{
+                        String produto = "";
+                        for (Produto p : listaDeprodutos){
+                          produto = "Nome do produto: "+p.getNome() + "\n" +
+                                    "Código do produto: "+p.getCodigo() +"\n" +
+                                    "Preço: R$ "+ String.format("%.2f"+ p.getPreco()) + "\n"+
+                                    "Quantidade no estoque: "+p.getQuantidade();
+                        }
+                    }
                     break;
 
                 case 3:

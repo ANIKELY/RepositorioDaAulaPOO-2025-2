@@ -1,4 +1,4 @@
-package br.ufpb.dcx.anikely;
+package br.ufpb.dcx.anikely.heloworld;
 
 public class AnikelyTest {
     void main (){
