@@ -33,7 +33,7 @@ public class MenuEstoqueDeSuperMercado {
                     String nome = JOptionPane.showInputDialog("Digite o nome do produto: ");
                     codigo = JOptionPane.showInputDialog("Digite o código do produto: ");
                     double preco = Double.parseDouble(JOptionPane.showInputDialog("Preço do produto: "));
-                    int quantidade = Integer.parseInt(JOptionPane.showInputDialog("Quantidade de " + nome + " para adicionar no estoque: :"));
+                    int quantidade = Integer.parseInt(JOptionPane.showInputDialog("Quantidade de " + nome + " para adicionar no estoque: "));
                     sistema.cadastrarProduto(nome,codigo,preco,quantidade);
                     break;
 
