@@ -16,6 +16,7 @@ public class Produto {
     public String getNome (){
         return this.nome;
     }
+
     public void setNome ( String nome){
         this.nome = nome;
     }
@@ -23,15 +24,13 @@ public class Produto {
     public String getCodigo() {
         return codigo;
     }
-    public void setQuantidade (int quantidade){
-        this.quantidade = quantidade;
-    }
-    public double getPreco (){
-        return  preco;
-    }
-    public int getQuantidade (){
-        return quantidade;
-    }
+
+    public void setQuantidade (int quantidade){this.quantidade = quantidade;}
+
+    public double getPreco (){return  preco;}
+
+    public int getQuantidade (){return quantidade;}
+
     public double calcularValorTotal (){
         return preco * quantidade;
     }
