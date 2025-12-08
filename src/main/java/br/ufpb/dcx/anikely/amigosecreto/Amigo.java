@@ -1,11 +1,11 @@
 package br.ufpb.dcx.anikely.amigosecreto;
 
-public abstract class Amigo {
+public class Amigo {
     private String nome;
     private String email;
     private String emailAmigoSorteado;
 
-    public Amigo(String nome, String email, String emailAmigoSorteado){
+    public Amigo(){
         this.nome=nome;
         this.email = email;
         this.emailAmigoSorteado = emailAmigoSorteado;
