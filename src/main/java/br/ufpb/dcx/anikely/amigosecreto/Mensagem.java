@@ -1,7 +1,7 @@
 package br.ufpb.dcx.anikely.amigosecreto;
 
 public abstract class Mensagem {
-    private String texto;
+    String texto;
     private String emailRemetente;
     private boolean anonima;
 
@@ -24,7 +24,7 @@ public abstract class Mensagem {
     public void setEmailRemetente (String emailRemetente){
         this.emailRemetente = emailRemetente;
     }
-    public boolean isAnonima() {
+    public boolean ehAnonima() {
         return anonima;
     }
 }

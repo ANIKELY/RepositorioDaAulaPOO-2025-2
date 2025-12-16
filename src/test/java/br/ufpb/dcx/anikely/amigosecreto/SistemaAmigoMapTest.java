@@ -10,13 +10,13 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SistemaAmigoTest {
+public class SistemaAmigoMapTest {
 
     SistemaAmigo sistema;
 
     @BeforeEach
     void setUp()  {
-        this.sistema = new SistemaAmigo();
+        this.sistema = new SistemaAmigoMap();
     }
 
     @Test
@@ -98,4 +98,3 @@ public class SistemaAmigoTest {
         }
     }
 }
-
