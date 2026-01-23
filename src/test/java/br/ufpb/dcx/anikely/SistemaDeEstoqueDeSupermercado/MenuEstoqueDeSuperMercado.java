@@ -1,12 +1,5 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
-
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercado;
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Produto;
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.ProdutoNaoEncontradoException;
-
 import javax.swing.JOptionPane;
-
-
 public class MenuEstoqueDeSuperMercado {
     static void main (){
         MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();

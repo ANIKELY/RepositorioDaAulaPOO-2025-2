@@ -6,13 +6,12 @@ import java.util.List;
 public class SistemaAmigo {
     private List<Amigo> amigos;
     private List<Mensagem> mensagens;
-
     public SistemaAmigo (){
-        List<Mensagem> mensagens = new ArrayList<>();
+        this.mensagens = new ArrayList<>();
         this.amigos = new ArrayList<>();
     }
     public void cadastraAmigo(String nomeAmigo, String emailAmigo) {
-        Amigo cadastro = new Amigo();
+        Amigo cadastro = new Amigo(nomeAmigo,emailAmigo);
         for (Amigo a : amigos){
             if (a.getNome().equals(nomeAmigo) && a.getEmail().equals(emailAmigo)) {
                 return;
@@ -29,14 +28,13 @@ public class SistemaAmigo {
         }
         return listaAnonima;
     }
-
     public Amigo pesquisaAmigo (String emailAmigo) throws AmigoInexistenteException {
         for (Amigo a : amigos){
             if (a.getEmail().equals(emailAmigo)){
                 return a;
             }
         }
-        return null;
+        throw new AmigoInexistenteException("Amigo com o email: " + emailAmigo + " não encontrado!");
     }
     public void configuraAmigoSecretoDe (String emailDaPessoa, String emailAmigoSorteado) throws AmigoInexistenteException {
         Amigo amigo = pesquisaAmigo (emailDaPessoa);
@@ -55,8 +53,27 @@ public class SistemaAmigo {
         }
         return amigo.getEmailAmigoSorteado();
     }
+    public List<Mensagem> pesquisaTodasAsMensagens() {
+        return mensagens;
+    }
+    public void enviarMensagemParaTodos(String texto, String mail, boolean b) {
+        Mensagem m = new MensagemParaTodos(texto, mail, b);
+        mensagens.add(m);
+    }
 
-    public void enviarMensagemParaTodos(String texto, String emailRemetente, String emailDestinatario, boolean ehAnonima) {
+    public void enviarMensagemParaAlguem(String texto, String mail, String mail1, boolean b) {
+         Mensagem m = new MensagemParaAlguem(texto, mail, mail1, b);
+         mensagens.add(m);
+    }
 
+    public List<Mensagem> pesquisaMensagensAnonimas() {
+
+        List<Mensagem> anonimas = new ArrayList<>();
+        for (Mensagem m : mensagens) {
+            if (m.ehAnonima()) {
+                anonimas.add(m);
+            }
+        }
+        return anonimas;
     }
 }

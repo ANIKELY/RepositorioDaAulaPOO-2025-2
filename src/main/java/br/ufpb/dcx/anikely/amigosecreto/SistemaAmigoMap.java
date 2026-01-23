@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SistemaAmigoMap implements SistemaAmigo {
+public class SistemaAmigoMap extends SistemaAmigo {
     private Map<String, Amigo> amigos;
     private List<Mensagem> mensagens;
     public SistemaAmigoMap (){
@@ -25,21 +25,20 @@ public class SistemaAmigoMap implements SistemaAmigo {
     public Amigo pesquisaAmigo(String emailAmigo) throws AmigoInexistenteException {
         Amigo a = amigos.get(emailAmigo);
         if (a == null){
-            throw new AmigoInexistenteException();
+            throw new AmigoInexistenteException("Amigo não encontrado!");
         }
         return a;
     }
-    @Override
+
 public void enviarMensagemParaTodos (String texto, String emailRemetente, boolean ehAnonima){
         Mensagem m = new MensagemParaTodos(texto, emailRemetente, ehAnonima);
         mensagens.add(m);
     }
-    @Override
-    public void enviarMensagemParaAlguem (String texto, String emailRemetente, boolean ehAnonimma){
+
+    public void enviarMensagemParaAlguem (String texto, String emailRemetente,String emailDestinatario, boolean ehAnonima){
         Mensagem m = new MensagemParaAlguem(texto, emailRemetente, emailDestinatario, ehAnonima);
         mensagens.add(m);
     }
-    @Override
     public List< Mensagem> pesquisaMensagensAnonimas (){
         List<Mensagem> anonimas = new ArrayList<>();
         for (Mensagem m : mensagens) {
@@ -49,7 +48,7 @@ public void enviarMensagemParaTodos (String texto, String emailRemetente, boolea
         }
         return anonimas;
     }
-    @Override
+
     public List<Mensagem> pesquisaTodasAsMensagens (){
         return mensagens;
     }
@@ -60,11 +59,10 @@ public void enviarMensagemParaTodos (String texto, String emailRemetente, boolea
         pesquisaAmigo(emailRemetente);
         pessoa.setEmailAmigoSecreto(emailRemetente);
     }
-    @Override
     public String pesquisaAmigoSecretoDe (String emailDaPessoa) throws AmigoInexistenteException, AmigoNaoSorteadoException{
         Amigo a = pesquisaAmigo(emailDaPessoa);
         if (a.getEmailAmigoSecreto() == null) {
-            throw new AmigoNaoSorteadoException();
+            throw new AmigoNaoSorteadoException("Amigo sorteado, não encontrado! \n Tente novamente!");
         }
         return a.getEmailAmigoSecreto();
 

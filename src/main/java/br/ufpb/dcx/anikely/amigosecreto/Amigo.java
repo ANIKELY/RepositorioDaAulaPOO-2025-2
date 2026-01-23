@@ -4,12 +4,15 @@ public class Amigo {
     private String nome;
     private String email;
     private String emailAmigoSorteado;
+    private String emailAmigoSecreto;
 
-    public Amigo(){
+    public Amigo(String nome, String email){
         this.nome=nome;
         this.email = email;
-        this.emailAmigoSorteado = emailAmigoSorteado;
+        this.emailAmigoSorteado = null;
+        this.emailAmigoSecreto = emailAmigoSecreto;
     }
+
     public String Amigo(String nomeAmiga, String emailAmiga){
         return "Nome: "+nomeAmiga+ " Email: "+emailAmiga;
     }
@@ -31,5 +34,13 @@ public class Amigo {
     }
     public void setEmailAmigoSorteado (String emailAmigoSorteado){
         this.emailAmigoSorteado = emailAmigoSorteado;
+    }
+
+    public String getEmailAmigoSecreto() {
+        return this.emailAmigoSecreto;
+    }
+
+    public void setEmailAmigoSecreto(String emailRemetente) {
+        this.emailAmigoSecreto = emailAmigoSecreto;
     }
 }
