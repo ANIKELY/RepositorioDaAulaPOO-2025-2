@@ -5,41 +5,36 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SistemaAmigoMap implements SistemaAmigo {
+public class SistemaAmigoMap extends SistemaAmigo {
     private Map<String, Amigo> amigos;
     private List<Mensagem> mensagens;
     public SistemaAmigoMap (){
         this.amigos = new HashMap<>();
         this.mensagens = new ArrayList<>();
     }
-
     @Override
     public void cadastraAmigo(String nomeAmigo, String emailAmigo) throws  AmigoJaExisteException{
         if (amigos.containsKey(emailAmigo)){
-            throw new AmigoJaExisteException();
+            throw new AmigoJaExisteException("Amigo já está cadastrado!");
         }
         amigos.put(emailAmigo, new Amigo(nomeAmigo, emailAmigo));
     }
-
     @Override
     public Amigo pesquisaAmigo(String emailAmigo) throws AmigoInexistenteException {
         Amigo a = amigos.get(emailAmigo);
         if (a == null){
-            throw new AmigoInexistenteException();
+            throw new AmigoInexistenteException("Amigo não encontrado!");
         }
         return a;
     }
-    @Override
 public void enviarMensagemParaTodos (String texto, String emailRemetente, boolean ehAnonima){
         Mensagem m = new MensagemParaTodos(texto, emailRemetente, ehAnonima);
         mensagens.add(m);
     }
-    @Override
-    public void enviarMensagemParaAlguem (String texto, String emailRemetente, boolean ehAnonimma){
+    public void enviarMensagemParaAlguem (String texto, String emailRemetente, String emailDestinatario, boolean ehAnonima){
         Mensagem m = new MensagemParaAlguem(texto, emailRemetente, emailDestinatario, ehAnonima);
         mensagens.add(m);
     }
-    @Override
     public List< Mensagem> pesquisaMensagensAnonimas (){
         List<Mensagem> anonimas = new ArrayList<>();
         for (Mensagem m : mensagens) {
@@ -49,24 +44,21 @@ public void enviarMensagemParaTodos (String texto, String emailRemetente, boolea
         }
         return anonimas;
     }
-    @Override
     public List<Mensagem> pesquisaTodasAsMensagens (){
         return mensagens;
     }
     @Override
-    public void configuraAmigoSecretoDe (String emailDaPessoa, String emailRemetente) throws AmigoInexistenteException{
+    public void configuraAmigoSecretoDe (String emailDaPessoa, String emailAmigoSorteado) throws AmigoInexistenteException{
 
         Amigo pessoa = pesquisaAmigo(emailDaPessoa);
-        pesquisaAmigo(emailRemetente);
-        pessoa.setEmailAmigoSecreto(emailRemetente);
+        pesquisaAmigo(emailAmigoSorteado);
+        pessoa.setEmailAmigoSorteado(emailAmigoSorteado);
     }
-    @Override
     public String pesquisaAmigoSecretoDe (String emailDaPessoa) throws AmigoInexistenteException, AmigoNaoSorteadoException{
         Amigo a = pesquisaAmigo(emailDaPessoa);
-        if (a.getEmailAmigoSecreto() == null) {
-            throw new AmigoNaoSorteadoException();
+        if (a.getEmailAmigoSorteado() == null) {
+            throw new AmigoNaoSorteadoException("Amigo secreto não foi sorteado ainda!");
         }
-        return a.getEmailAmigoSecreto();
-
+        return a.getEmailAmigoSorteado();
     }
 }

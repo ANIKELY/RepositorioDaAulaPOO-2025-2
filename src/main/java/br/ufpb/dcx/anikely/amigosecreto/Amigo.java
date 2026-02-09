@@ -5,13 +5,12 @@ public class Amigo {
     private String email;
     private String emailAmigoSorteado;
 
-    public Amigo(){
-        this.nome=nome;
-        this.email = email;
-        this.emailAmigoSorteado = emailAmigoSorteado;
+    public Amigo(String nomeAmigo, String emailAmigo){
+        this.nome=nomeAmigo;
+        this.email = emailAmigo;
     }
     public String Amigo(String nomeAmiga, String emailAmiga){
-        return "Nome: "+nomeAmiga+ " Email: "+emailAmiga;
+        return "Nome: "+this.nome+ " Email: "+this.email;
     }
     public String getNome(){
         return nome;

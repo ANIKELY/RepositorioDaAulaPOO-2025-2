@@ -1,14 +1,11 @@
 package br.ufpb.dcx.anikely.amigosecreto;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SistemaAmigoMapTest {
 
@@ -50,8 +47,8 @@ public class SistemaAmigoMapTest {
         assertTrue(sistema.pesquisaTodasAsMensagens().isEmpty());
         sistema.enviarMensagemParaTodos("texto", "jose@dcx.ufpb.br", false);
         List<Mensagem> mensagensAchadas = sistema.pesquisaTodasAsMensagens();
-        assertTrue(mensagensAchadas.size()==1);
-        assertTrue(mensagensAchadas.get(0).getEmailRemetente().equals("jose@dcx.ufpb.br"));
+        assertEquals(1, mensagensAchadas.size());
+        assertEquals("jose@dcx.ufpb.br", mensagensAchadas.getFirst().getEmailRemetente());
     }
 
     @Test
@@ -60,8 +57,8 @@ public class SistemaAmigoMapTest {
         sistema.enviarMensagemParaAlguem("texto", "jose@dcx.ufpb.br", "maria@dcx.ufpb.br", true);
         List<Mensagem> mensagensAchadas = sistema.pesquisaTodasAsMensagens();
         assertEquals(1, mensagensAchadas.size());
-        assertTrue(mensagensAchadas.get(0) instanceof MensagemParaAlguem);
-        assertTrue(mensagensAchadas.get(0).getTexto().equals("texto"));
+        assertInstanceOf(MensagemParaAlguem.class, mensagensAchadas.getFirst());
+        assertEquals("texto", mensagensAchadas.getFirst().getTexto());
     }
 
     @Test
@@ -70,16 +67,16 @@ public class SistemaAmigoMapTest {
         sistema.enviarMensagemParaAlguem("texto 1", "jose@dcx.ufpb.br", "maria@dcx.ufpb.br", false);
         assertTrue(sistema.pesquisaMensagensAnonimas().isEmpty());
         sistema.enviarMensagemParaAlguem("texto 2", "jose@dcx.ufpb.br", "maria@dcx.ufpb.br", true);
-        assertTrue(sistema.pesquisaMensagensAnonimas().size()==1);
+        assertEquals(1, sistema.pesquisaMensagensAnonimas().size());
     }
 
     @Test
     void testPesquisaTodasAsMensagens() {
         assertTrue(sistema.pesquisaTodasAsMensagens().isEmpty());
         sistema.enviarMensagemParaAlguem("texto 1", "maria@dcx.ufpb.br", "jose@dcx.ufpb.br", true);
-        assertTrue(sistema.pesquisaTodasAsMensagens().size()==1);
+        assertEquals(1, sistema.pesquisaTodasAsMensagens().size());
         sistema.enviarMensagemParaAlguem("texto 2", "jose@dcx.ufpb.br", "maria@dcx.ufpb.br", true);
-        assertTrue(sistema.pesquisaTodasAsMensagens().size()==2);
+        assertEquals(2, sistema.pesquisaTodasAsMensagens().size());
     }
 
     @Test

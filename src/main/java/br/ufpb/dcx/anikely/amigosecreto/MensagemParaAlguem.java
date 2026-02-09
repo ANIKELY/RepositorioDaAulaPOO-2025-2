@@ -2,15 +2,13 @@ package br.ufpb.dcx.anikely.amigosecreto;
 
 public class MensagemParaAlguem extends Mensagem {
     private String emailDestinatario;
-    public MensagemParaAlguem (String emailRemetente, String emailDestinatario, boolean ehAnonima){
+    public MensagemParaAlguem (String texto, String emailRemetente, String emailDestinatario, boolean ehAnonima){
         super(emailRemetente, emailDestinatario, ehAnonima);
-
+        this.emailDestinatario = emailDestinatario;
     }
-
     public String getEmailDestinatario (){
         return this.emailDestinatario;
     }
-
     public void setEmailDestinatario(String emailDestinatario) {
         this.emailDestinatario = emailDestinatario;
     }
