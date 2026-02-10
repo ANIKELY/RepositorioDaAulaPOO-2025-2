@@ -1,7 +1,7 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 import javax.swing.JOptionPane;
 public class MenuEstoqueDeSuperMercado {
-    static void main (){
+    public static void main (String [] args){
         MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();
 
         boolean sair = false;
