@@ -5,24 +5,26 @@ import java.awt.*;
 
 public class SistemaGUIV2 extends JFrame {
     JLabel linha1,linha2;
-    ImageIcon EstoqueImg = new ImageIcon("./imgs/EtoqueImg.jpg");
+    ImageIcon EstoqueImg = new ImageIcon("./imgs/Logo.png");
     public SistemaGUIV2(){
         setTitle("Estoque de Supermercado");
         setSize(400,400);
-        setLocation(0,9);
+        setLocation(0,0);
         setResizable(true);
-        getContentPane() .setBackground(Color.blue);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane() .setBackground(Color.BLACK);
+
         linha1 = new JLabel("Meu Sistema Estoque de Supermercado", JLabel.CENTER);
         linha1.setForeground(Color.CYAN);
         linha1.setFont(new Font("Serif",Font.BOLD,46 ));
         linha2 = new JLabel(EstoqueImg, JLabel.CENTER);
-        getContentPane().setLayout(new GridLayout());
+
+        getContentPane().setLayout(new GridLayout(2,1));
         getContentPane().add(linha1);
         getContentPane().add(linha2);
+        setVisible(true);
     }
-    static void main(String[] args){
-        JFrame janela = new SistemaGUIV2();
-        janela.setVisible(true);
-        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public static void main(String[] args){
+        new SistemaGUIV2();
     }
 }

@@ -1,5 +1,8 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 import javax.swing.JOptionPane;
+import java.util.Collection;
+import java.util.List;
+
 public class MenuEstoqueDeSuperMercado {
     public static void main (String [] args){
         MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();
@@ -35,27 +38,35 @@ public class MenuEstoqueDeSuperMercado {
                     break;
 
                 case 2 :
-
-                    if (sistema.listarProdutos().isEmpty()){
-                        JOptionPane.showMessageDialog(null,"Não há produtos no estoque para listar");
-                    }else{
-                        String produto = "";
-                        for (Produto p : sistema.listarProdutos()){
-                          produto += "Nome do produto: "+p.getNome() + "\n" +
-                                    "Código do produto: "+p.getCodigo() +"\n" +
-                                    "Preço: R$ "+ String.format("%.2f", p.getPreco()) + "\n"+
-                                    "Quantidade no estoque: "+p.getQuantidade() + "\n" +
-                                    "______________________________________" + "\n";
+                    try {
+                        List<Produto> produtoList = sistema.listarProdutos();
+                        StringBuilder msg = new StringBuilder("LISTA DE PRODUTOS NO ESTOQUE\n\n");
+                        for (Produto p : produtoList) {
+                            msg.append("Nome do produto: ").append(p.getNome()).append("\n")
+                                    .append("Código do produto: ").append(p.getCodigo()).append("\n")
+                                    .append("Preço: R$ ").append(String.format("%.2f", p.getPreco())).append("\n")
+                                    .append("Quantidade no estoque: ").append(p.getQuantidade()).append("\n")
+                                    .append("______________________________________\n\n");
                         }
-                        JOptionPane.showMessageDialog(null,"LISTA DE PRODUTOS NO ESTOQUE" + "\n" + " "+produto);
+                        JOptionPane.showMessageDialog(null, msg.toString());
+
+                    } catch (ListaVaziaException e) {
+                        JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
 
                 case 3:
                     codigo = JOptionPane.showInputDialog("Digite o código do produto: ");
                     try {
-                        Produto p = sistema.pesquisarProdutoPorCodigo(codigo);
-                        JOptionPane.showMessageDialog(null, "Produto com o código "+codigo+ " encontrado: "+p);
+                        Collection<Produto> p = sistema.pesquisarProdutoPorCodigo(codigo);
+
+                        if (!p.isEmpty()){
+                            StringBuilder msg = new StringBuilder("Produto(s) encontrado(s) no estoque:");
+                            for (Produto produto : p ){
+                                msg.append(produto.toString()).append("\n");
+                            }
+                            JOptionPane.showMessageDialog(null, msg.toString());
+                        }
                     }catch (ProdutoNaoEncontradoException e){
                         JOptionPane.showMessageDialog(null, e.getMessage());
                     }

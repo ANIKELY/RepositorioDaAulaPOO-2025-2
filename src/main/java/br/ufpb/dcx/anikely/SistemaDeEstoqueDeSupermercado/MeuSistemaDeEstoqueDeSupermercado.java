@@ -1,6 +1,7 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class MeuSistemaDeEstoqueDeSupermercado {
@@ -8,19 +9,30 @@ public class MeuSistemaDeEstoqueDeSupermercado {
     public MeuSistemaDeEstoqueDeSupermercado(){
         this.produtos = new ArrayList<>();
     }
-    public void cadastrarProduto (String nome, String codigo, double preco, int quantidade){
+    public boolean cadastrarProduto (String nome, String codigo, double preco, int quantidade){
         Produto cadastro = new Produto(nome, codigo, preco, quantidade);
-        produtos.add(cadastro);
+        if (!produtos.contains(cadastro)){
+            produtos.add(cadastro);
+            return true;
+        }
+        return false;
     }
-    public Produto pesquisarProdutoPorCodigo (String codigo) throws ProdutoNaoEncontradoException{
-        for (Produto a : produtos) {
-            if (a.getCodigo().equals(codigo)) {
-                return a;
+    public Collection<Produto> pesquisarProdutoPorCodigo (String codigo) throws ProdutoNaoEncontradoException{
+        Collection<Produto> resultado = new ArrayList<>();
+        for (Produto produto : produtos) {
+            if (produto.getCodigo().equals(codigo)) {
+                resultado.add(produto);
             }
         }
-        throw new ProdutoNaoEncontradoException("Produto com o código " +codigo + " não encontrado");
+        if (resultado.isEmpty()){
+            throw new ProdutoNaoEncontradoException("Produto com o código " +codigo + " não encontrado");
+        }
+        return resultado;
     }
-    public List<Produto> listarProdutos (){
+    public List<Produto> listarProdutos () throws ListaVaziaException {
+        if (produtos.isEmpty()){
+            throw new ListaVaziaException("Não há produtos no estoque para listar!");
+        }
         return produtos;
     }
     public void atualizarEstoque (String codigo, int novaQuantidade) throws ProdutoNaoEncontradoException {
@@ -40,9 +52,9 @@ public class MeuSistemaDeEstoqueDeSupermercado {
         }
         return total;
     }
-    public boolean removerProduto (String codigo){
-        for (Produto a : produtos){
-            if (a.getCodigo().equals(codigo)){
+    public boolean removerProduto (String codigo) {
+        for (Produto a : produtos) {
+            if (a.getCodigo().equals(codigo)) {
                 produtos.remove(a);
                 return true;
             }
