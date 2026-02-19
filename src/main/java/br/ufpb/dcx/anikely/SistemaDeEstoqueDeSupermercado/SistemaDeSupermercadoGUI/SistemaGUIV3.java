@@ -31,7 +31,7 @@ public class SistemaGUIV3 extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.BLACK);
 
-        linha1 = new JLabel("Sistema de Estoque de Supermercado",JLabel.CENTER);
+        linha1 = new JLabel();
         linha1.setForeground(Color.CYAN);
         linha1.setFont(new Font("Serif", Font.BOLD,24));
         linha2 = new JLabel(EstoqueImg, JLabel.CENTER);
