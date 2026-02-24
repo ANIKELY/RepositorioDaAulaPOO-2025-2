@@ -1,5 +1,6 @@
 package br.ufpb.dcx.anikely.amigosecreto;
 import java.util.Scanner;
+import java.io.IO;
 public class TestaSistemaAmigoGUI {
     static void main (){
         Scanner tc = new Scanner(System.in);

@@ -13,7 +13,7 @@ public class TestaSistemaGUIV3 {
         janela.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                int resp = JOptionPane.showConfirmDialog(janela, "Deseja sairr? ");
+                int resp = JOptionPane.showConfirmDialog(janela, "Deseja sair? ");
                 if (resp == JOptionPane.YES_OPTION){
                     System.exit(0);
                 }
