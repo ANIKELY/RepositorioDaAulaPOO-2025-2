@@ -9,23 +9,17 @@ public class MenuEstoqueDeSuperMercado {
 
         boolean sair = false;
         while (!sair){
-            int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
-                    MENU
-                    Digite uma opção:
-                    
-                    1- Cadastrar Produto:
-                    
-                    2- Listar Produtos:
-                    
-                    3- Pesquisar por código:
-                    
-                    4- Atualizar estoque:
-                    
-                    5- Remover produto do estoque:
-                    
-                    6- Exibir valor total do estoque
-                    
-                    0- Sair"""));
+            int opcao = Integer.parseInt(JOptionPane.showInputDialog(
+                    "MENU\n" +
+                            "Digite uma opção:\n" +
+                            "1 - Cadastrar Produto\n" +
+                            "2 - Listar Produtos\n" +
+                            "3 - Pesquisar por código\n" +
+                            "4 - Atualizar estoque\n" +
+                            "5 - Remover produto do estoque\n" +
+                            "6 - Exibir valor total do estoque\n" +
+                            "0 - Sair"
+            ));
 
             String codigo;
             switch (opcao){

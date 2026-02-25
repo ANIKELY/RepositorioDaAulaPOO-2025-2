@@ -1,40 +1,43 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoGUI;
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller.SistemaAddController;
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller.SistemaListController;
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller.SistemaRemoveController;
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller.SistemaSearchController;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller.*;
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercado;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class SistemaGUIV3 extends JFrame {
-    JLabel linha1, linha2;
+    JLabel linha1, linha2,linha3;
     ImageIcon EstoqueImg;
+    ImageIcon EstoqueImg2;
     ImageIcon addBusca;
     ImageIcon addList;
     ImageIcon addAdicionar;
     ImageIcon addRemove;
-    JButton botaoBuscar, botaoListar, botaoAdicionar, botaoRemover;
+    ImageIcon IconExit;
+    JButton botaoBuscar, botaoListar, botaoAdicionar, botaoRemover,botaoSair;
     MeuSistemaDeEstoqueDeSupermercado sistemaDeEstoque = new MeuSistemaDeEstoqueDeSupermercado();
 
     public SistemaGUIV3 (){
 
-        EstoqueImg = redimensionarIcone("./imgs/Logo.png", 800, 200);
-        addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 1000, 1000);
-        addList = redimensionarIcone("./imgs/IconListar.png", 1000, 1000);
-        addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 1000, 1000);
-        addRemove = redimensionarIcone("./imgs/IconRemove.png", 1000, 1000);
+        EstoqueImg = redimensionarIcone("./imgs/IconLogo1.png", 800, 600);
+        EstoqueImg2 = redimensionarIcone("./imgs/IconLogo2.png", 400, 500);
+        addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 800, 800);
+        addList = redimensionarIcone("./imgs/IconListar.png", 800, 800);
+        addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 800, 800);
+        addRemove = redimensionarIcone("./imgs/IconRemove.png", 800, 800);
+        IconExit = redimensionarIcone("./imgs/IconExit.png",800,600);
         setSize(800,600);
         setLocation(150,150);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.BLACK);
 
-        linha1 = new JLabel();
+        linha1 = new JLabel("SEJA BEM VINDO (A)!", JLabel.CENTER);
+
         linha1.setForeground(Color.CYAN);
         linha1.setFont(new Font("Serif", Font.BOLD,24));
         linha2 = new JLabel(EstoqueImg, JLabel.CENTER);
+        linha3 = new JLabel(EstoqueImg2,JLabel.CENTER);
 
         botaoBuscar = new JButton("Buscar", addBusca);
         botaoBuscar.addActionListener(new SistemaSearchController(sistemaDeEstoque,this));
@@ -48,7 +51,10 @@ public class SistemaGUIV3 extends JFrame {
         botaoRemover = new JButton("Remover produto",addRemove);
         botaoRemover.addActionListener(new SistemaRemoveController(sistemaDeEstoque,this));
 
-        getContentPane().setLayout(new GridLayout(4,2));
+        botaoSair = new JButton("Sair", IconExit);
+        botaoSair.addActionListener(new SistemaExitController(sistemaDeEstoque,this));
+
+        getContentPane().setLayout(new GridLayout(5,2));
         getContentPane().add(linha1);
         getContentPane().add(botaoBuscar);
 
@@ -60,6 +66,10 @@ public class SistemaGUIV3 extends JFrame {
 
         getContentPane().add(new JLabel());
         getContentPane().add(botaoRemover);
+        setVisible(true);
+
+        getContentPane().add(new JLabel());
+        getContentPane().add(botaoSair);
         setVisible(true);
     }
 

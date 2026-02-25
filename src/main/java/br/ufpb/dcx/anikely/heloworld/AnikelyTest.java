@@ -1,7 +1,5 @@
 package br.ufpb.dcx.anikely.heloworld;
 
-import java.io.IO;
-
 public class AnikelyTest {
     void main (){
         IO.println("Olá");
