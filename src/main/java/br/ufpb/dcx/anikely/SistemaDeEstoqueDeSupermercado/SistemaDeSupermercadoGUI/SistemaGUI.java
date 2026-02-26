@@ -6,7 +6,7 @@ public class SistemaGUI extends JFrame {
     public SistemaGUI(){
         setTitle("Estoque de Supermercado");
         setSize(800,400);
-        setLocation(250,150);
+        setLocation(150,150);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.BLACK);

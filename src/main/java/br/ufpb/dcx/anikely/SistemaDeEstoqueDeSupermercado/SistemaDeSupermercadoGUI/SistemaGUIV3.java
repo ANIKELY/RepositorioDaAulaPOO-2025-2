@@ -6,9 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SistemaGUIV3 extends JFrame {
-    JLabel linha1, linha2,linha3;
+    JLabel linha1, linha2;
     ImageIcon EstoqueImg;
-    ImageIcon EstoqueImg2;
     ImageIcon addBusca;
     ImageIcon addList;
     ImageIcon addAdicionar;
@@ -19,17 +18,15 @@ public class SistemaGUIV3 extends JFrame {
 
     public SistemaGUIV3 (){
 
-        EstoqueImg = redimensionarIcone("./imgs/IconLogo1.png", 800, 600);
-        EstoqueImg2 = redimensionarIcone("./imgs/IconLogo2.png", 400, 500);
-        addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 800, 800);
-        addList = redimensionarIcone("./imgs/IconListar.png", 800, 800);
-        addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 800, 800);
-        addRemove = redimensionarIcone("./imgs/IconRemove.png", 800, 800);
-        IconExit = redimensionarIcone("./imgs/IconExit.png",800,600);
-        setSize(800,600);
+        EstoqueImg = redimensionarIcone("./imgs/IconLogo2.png", 600, 400);
+        addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 500, 500);
+        addList = redimensionarIcone("./imgs/IconListar.png", 500, 500);
+        addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 500, 500);
+        addRemove = redimensionarIcone("./imgs/IconRemove.png", 500, 500);
+        IconExit = redimensionarIcone("./imgs/IconExit.png",800,400);
+        setSize(700,600);
         setLocation(150,150);
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.BLACK);
 
         linha1 = new JLabel("SEJA BEM VINDO (A)!", JLabel.CENTER);
@@ -37,24 +34,24 @@ public class SistemaGUIV3 extends JFrame {
         linha1.setForeground(Color.CYAN);
         linha1.setFont(new Font("Serif", Font.BOLD,24));
         linha2 = new JLabel(EstoqueImg, JLabel.CENTER);
-        linha3 = new JLabel(EstoqueImg2,JLabel.CENTER);
 
-        botaoBuscar = new JButton("Buscar", addBusca);
+
+        botaoBuscar = new JButton(addBusca);
         botaoBuscar.addActionListener(new SistemaSearchController(sistemaDeEstoque,this));
 
-        botaoListar = new JButton("Listar Produtos",addList);
+        botaoListar = new JButton(addList);
         botaoListar.addActionListener(new SistemaListController(sistemaDeEstoque,this));
 
-        botaoAdicionar = new JButton("Adicionar produtos", addAdicionar);
+        botaoAdicionar = new JButton(addAdicionar);
         botaoAdicionar.addActionListener(new SistemaAddController(sistemaDeEstoque,this));
 
-        botaoRemover = new JButton("Remover produto",addRemove);
+        botaoRemover = new JButton(addRemove);
         botaoRemover.addActionListener(new SistemaRemoveController(sistemaDeEstoque,this));
 
-        botaoSair = new JButton("Sair", IconExit);
+        botaoSair = new JButton(IconExit);
         botaoSair.addActionListener(new SistemaExitController(sistemaDeEstoque,this));
 
-        getContentPane().setLayout(new GridLayout(5,2));
+        getContentPane().setLayout(new GridLayout(5,2,10,10));
         getContentPane().add(linha1);
         getContentPane().add(botaoBuscar);
 
@@ -66,7 +63,6 @@ public class SistemaGUIV3 extends JFrame {
 
         getContentPane().add(new JLabel());
         getContentPane().add(botaoRemover);
-        setVisible(true);
 
         getContentPane().add(new JLabel());
         getContentPane().add(botaoSair);
