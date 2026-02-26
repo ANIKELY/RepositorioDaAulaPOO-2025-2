@@ -4,4 +4,7 @@ Seja bem-vindo(a) ao meu repositório de projetos acadêmicos! Aqui você vai en
 
 ---
 ## 📌 Índice
--[Projeto 1 - 
+-[Projeto 1 - SistemaDeEstoqueDeSupermercado] (#Projeto-1)
+- [Projeto 2 - SistemaDeGastos] (#Projeto-2)
+- [Projeto 3 - amigosecreto] (#Projeto-3)
+- [Projeto 4 - heloword] (#Projeto-4)
