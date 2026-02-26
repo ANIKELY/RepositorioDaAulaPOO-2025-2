@@ -14,9 +14,10 @@ public class SistemaGUIV3 extends JFrame {
     ImageIcon addRemove;
     ImageIcon IconExit;
     JButton botaoBuscar, botaoListar, botaoAdicionar, botaoRemover,botaoSair;
-    MeuSistemaDeEstoqueDeSupermercado sistemaDeEstoque = new MeuSistemaDeEstoqueDeSupermercado();
+    MeuSistemaDeEstoqueDeSupermercado sistemaDeEstoque;
 
-    public SistemaGUIV3 (){
+    public SistemaGUIV3 (MeuSistemaDeEstoqueDeSupermercado sistema) {
+        this.sistemaDeEstoque = sistema;
 
         EstoqueImg = redimensionarIcone("./imgs/IconLogo2.png", 600, 400);
         addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 500, 500);
@@ -29,8 +30,8 @@ public class SistemaGUIV3 extends JFrame {
         setResizable(false);
         getContentPane().setBackground(Color.BLACK);
 
+        setTitle("Sistema de Estoque de Supermercado");
         linha1 = new JLabel("SEJA BEM VINDO (A)!", JLabel.CENTER);
-
         linha1.setForeground(Color.CYAN);
         linha1.setFont(new Font("Serif", Font.BOLD,24));
         linha2 = new JLabel(EstoqueImg, JLabel.CENTER);
@@ -76,6 +77,6 @@ public class SistemaGUIV3 extends JFrame {
         return new ImageIcon(imgRedimensionada);
     }
     public static void main (String[]args){
-        new SistemaGUIV3();
+        new SistemaGUIV3(new MeuSistemaDeEstoqueDeSupermercado());
     }
 }

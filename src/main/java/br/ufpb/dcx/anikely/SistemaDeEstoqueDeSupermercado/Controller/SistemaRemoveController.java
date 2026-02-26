@@ -1,6 +1,7 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller;
 
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercado;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.ProdutoNaoRemovidoException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -17,12 +18,11 @@ public class SistemaRemoveController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         String codigo = JOptionPane.showInputDialog(janelaPrincipal,"Digite o código do produto que deseja remover: ");
-        boolean remover = sistema.removerProduto(codigo);
-        if (remover){
-            JOptionPane.showMessageDialog(janelaPrincipal,"Produto removido com sucesso");
-        }else{
-            JOptionPane.showMessageDialog(janelaPrincipal,"Erro ao remover produto");
+        try{
+            sistema.removerProduto(codigo);
+            JOptionPane.showMessageDialog(janelaPrincipal,"Produto removido com sucesso!");
+        }catch(ProdutoNaoRemovidoException ex){
+            JOptionPane.showMessageDialog(janelaPrincipal, "Erro, produto não encontrado para remoção!");
         }
     }
-
 }

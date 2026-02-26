@@ -19,7 +19,7 @@ public class SistemaAddController implements ActionListener {
         String codigo = JOptionPane.showInputDialog(janelaPrincipal,"Código do produto: ");
         int quantidade = Integer.parseInt(JOptionPane.showInputDialog(janelaPrincipal,"Quantidade há cadastrar: "));
         double preco = Double.parseDouble(JOptionPane.showInputDialog(janelaPrincipal,"Valor do produto: "));
-        boolean cadastrou = sistema.cadastrarProduto(nomeProduto, codigo,preco,quantidade);
+        boolean cadastrou = sistema.cadastrarProduto(nomeProduto,codigo,preco,quantidade);
         if (cadastrou){
             JOptionPane.showMessageDialog(janelaPrincipal, "Produto cadastrado com sucesso! :)");
         }else{

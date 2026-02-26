@@ -1,6 +1,11 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 
-public class Produto {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Produto implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private String nome;
     private final String codigo;
     private double preco;
@@ -38,6 +43,7 @@ public class Produto {
     public int hashCode() {
         return codigo.hashCode();
     }
+    @Override
     public boolean equals (Object obj){
         if (this == obj){
             return true;
@@ -48,6 +54,7 @@ public class Produto {
         Produto produto = (Produto) obj;
         return codigo.equals(produto.codigo);
     }
+    @Override
     public String toString (){
         return "Nome do produto: "+nome+ " Código: "+ codigo
                 + " Quantidade de itens: "+ quantidade;

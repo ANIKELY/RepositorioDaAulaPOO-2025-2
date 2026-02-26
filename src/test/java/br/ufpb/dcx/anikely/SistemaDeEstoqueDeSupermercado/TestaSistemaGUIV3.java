@@ -5,10 +5,18 @@ import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoG
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 public class TestaSistemaGUIV3 {
     public static void main(String[] args) {
-        JFrame janelaPrincipal = new SistemaGUIV3();
+        MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();
+        try {
+            sistema.recuperarDadosProdutos();
+            JOptionPane.showMessageDialog(null,"Iniciando sistema...");
+        }catch (IOException e){
+        JOptionPane.showMessageDialog(null,"Erro ao iniciar sistema...");
+        }
+        JFrame janelaPrincipal = new SistemaGUIV3(sistema);
         janelaPrincipal.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         janelaPrincipal.addWindowListener(new WindowAdapter() {
             @Override
@@ -20,6 +28,12 @@ public class TestaSistemaGUIV3 {
                         JOptionPane.YES_NO_OPTION
                 );
                 if (resp == JOptionPane.YES_OPTION) {
+                    try {
+                        sistema.salvarDadosProdutos();
+                        JOptionPane.showMessageDialog(null,"Sistema finalizado e salvo com sucesso!");
+                    }catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Erro ao salvar dados!" + "\n" + ex.getMessage());
+                    }
                     System.exit(0);
                 }
             }

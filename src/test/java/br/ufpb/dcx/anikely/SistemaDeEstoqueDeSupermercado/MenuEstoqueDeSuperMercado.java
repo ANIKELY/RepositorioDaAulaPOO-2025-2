@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class MenuEstoqueDeSuperMercado {
-    public static void main (String [] args){
+    public static void main (String [] args) {
         MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();
 
         boolean sair = false;
@@ -71,18 +71,18 @@ public class MenuEstoqueDeSuperMercado {
                     int novaQuantidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a nova quantidade do produto: "));
                     try {
                         sistema.atualizarEstoque(codigo, novaQuantidade);
-                    } catch (ProdutoNaoEncontradoException e) {
-                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    } catch (AtualizacaoDeEstoqueException a) {
+                        JOptionPane.showMessageDialog(null, a.getMessage());
                     }
                     break;
 
                 case 5 :
                     codigo = JOptionPane.showInputDialog("Digite o código do produto: ");
-                    boolean remover = sistema.removerProduto(codigo);
-                    if (remover){
+                    try {
+                        sistema.removerProduto(codigo);
                         JOptionPane.showMessageDialog(null, "Produto removido com sucesso!");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Produto não encontrado");
+                    }catch (ProdutoNaoRemovidoException e){
+                        JOptionPane.showMessageDialog(null,"Erro ao salvar"+ "\n" + e.getMessage());
                     }
                     break;
                 case 6 :
