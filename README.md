@@ -1,4 +1,4 @@
-RepositorioDaAulaPOO-202502
+*RepositorioDaAulaPOO-202502
 Repositório com os projetos desenvolvidos durante as aulas de Programação Orientada a Objetos, contendo sistemas práticos implementados em Java.
 
 Projetos
