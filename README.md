@@ -24,10 +24,11 @@ Sistema desktop para gerenciamento de estoque de supermercado, com interface gr�
 Projeto introdutório de Java.
 
 ##Tecnologias
-Java 25+
-Swing (interface gráfica)
-JUnit 5 (testes)
-Serialização Java (persistência de dados)
----
+- Java 25+
+- Swing (interface gráfica)
+- JUnit 5 (testes)
+- Serialização Java (persistência de dados)
+
 **Autor**
+---
 Anikely Santos da Silva
