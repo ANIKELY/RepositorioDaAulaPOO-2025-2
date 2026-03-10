@@ -1,5 +1,5 @@
-#RepositorioDaAulaPOO-202502
-Repositório com os projetos desenvolvidos durante as aulas de Programação Orientada a Objetos, contendo sistemas práticos implementados em Java.
+#RepositorioDaAulaPOO-2025-2
+##Repositório com os projetos desenvolvidos durante as aulas de Programação Orientada a Objetos, contendo sistemas práticos implementados em Java.
 ---
 ##Projetos
 SistemaDeEstoqueDeSupermercado
