@@ -1,16 +1,29 @@
-# MeuRepositrio-POO-2025-2
+RepositorioDaAulaPOO-202502
+Repositório com os projetos desenvolvidos durante as aulas de Programação Orientada a Objetos, contendo sistemas práticos implementados em Java.
 
-Seja bem-vindo(a) ao meu repositório de projetos acadêmicos! Aqui você vai encontrar uma coleção de trabalhos construídos durante o perído 2025.2 na UFPB e organizados em categorias.
+Projetos
+SistemaDeEstoqueDeSupermercado
+Sistema desktop para gerenciamento de estoque de supermercado, com interface gráfica (Swing) e persistência de dados em arquivo.
 
----
-##  Índice
--[Projeto 1 - SistemaDeEstoqueDeSupermercado] (#Projeto-1)
-- [Projeto 2 - SistemaDeGastos] (#Projeto-2)
-- [Projeto 3 - amigosecreto] (#Projeto-3)
-- [Projeto 4 - heloword] (#Projeto-4)
-  ---
+Funcionalidades:
 
-  ## Projeto 1 - SistemaDeEstoqueDeSupermercado
-  **Descrição:** O projeto foi desenvolvido com a capacidade de buscar cadastrados produtos no estoque se não encontrar nenhum produto lança uma exceção, cadastrar produtos, listar os produtos cadastrados, caso contrário, ele lança uma exceção, é também capaz remover produtos e se não houver nenhum produto no estoque ele também lança uma exceção avisando que não há produtos para ser removidos e no final, a opção de sair caso o usuário deseje sair.
+Cadastrar, pesquisar, listar, atualizar e remover produtos
+Calcular valor total do estoque
+Salvamento e recuperação automática de dados em arquivo .dat
+Principais classes:
 
-**Tecnologias:** Java 
+Produto — entidade principal
+MeuSistemaDeEstoqueDeSupermercado — implementação das funcionalidades
+GravadorDeDados — persistência via serialização Java
+SistemaEstoqueTest — testes com JUnit 5
+AmigoSecreto
+Sistema para organização de sorteio de amigo secreto.
+
+HelloWorld
+Projeto introdutório de Java.
+
+Tecnologias
+Java 25+
+Swing (interface gráfica)
+JUnit 5 (testes)
+Serialização Java (persistência de dados)
