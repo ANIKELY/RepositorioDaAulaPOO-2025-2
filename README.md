@@ -1,23 +1,23 @@
-*RepositorioDaAulaPOO-202502
+#RepositorioDaAulaPOO-202502
 Repositório com os projetos desenvolvidos durante as aulas de Programação Orientada a Objetos, contendo sistemas práticos implementados em Java.
-
-Projetos
+---
+##Projetos
 SistemaDeEstoqueDeSupermercado
 Sistema desktop para gerenciamento de estoque de supermercado, com interface gráfica (Swing) e persistência de dados em arquivo.
 
-Funcionalidades:
+##Funcionalidades:
+- Cadastrar, pesquisar, listar, atualizar e remover produtos
+- Calcular valor total do estoque
+- Salvamento e recuperação automática de dados em arquivo .dat
 
-Cadastrar, pesquisar, listar, atualizar e remover produtos
-Calcular valor total do estoque
-Salvamento e recuperação automática de dados em arquivo .dat
-Principais classes:
+###Principais classes:
 
-Produto — entidade principal
-MeuSistemaDeEstoqueDeSupermercado — implementação das funcionalidades
-GravadorDeDados — persistência via serialização Java
-SistemaEstoqueTest — testes com JUnit 5
-AmigoSecreto
-Sistema para organização de sorteio de amigo secreto.
+-Produto — entidade principal
+-MeuSistemaDeEstoqueDeSupermercado — implementação das funcionalidades
+-GravadorDeDados — persistência via serialização Java
+-SistemaEstoqueTest — testes com JUnit 5
+-AmigoSecreto
+-Sistema para organização de sorteio de amigo secreto.
 
 HelloWorld
 Projeto introdutório de Java.
