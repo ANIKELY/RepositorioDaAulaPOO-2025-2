@@ -13,12 +13,12 @@ Sistema desktop para gerenciamento de estoque de supermercado, com interface gr�
 
 ###Principais classes:
 
--Produto — entidade principal
--MeuSistemaDeEstoqueDeSupermercado — implementação das funcionalidades
--GravadorDeDados — persistência via serialização Java
--SistemaEstoqueTest — testes com JUnit 5
--AmigoSecreto
--Sistema para organização de sorteio de amigo secreto.
+- Produto — entidade principal
+- MeuSistemaDeEstoqueDeSupermercado — implementação das funcionalidades
+- GravadorDeDados — persistência via serialização Java
+- SistemaEstoqueTest — testes com JUnit 5
+- AmigoSecreto
+- Sistema para organização de sorteio de amigo secreto.
 
 ###HelloWorld
 Projeto introdutório de Java.
