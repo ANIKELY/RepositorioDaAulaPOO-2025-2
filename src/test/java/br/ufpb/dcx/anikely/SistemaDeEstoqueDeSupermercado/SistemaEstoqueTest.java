@@ -36,9 +36,9 @@ public class SistemaEstoqueTest {
             sistema.pesquisarProdutoPorCodigo("1234");
             fail ("Deveria lançar uma exceção ao buscar produto removido");
         }catch (ProdutoNaoEncontradoException ex){
-           /*Esperado é que o produto seja removido
-           *Por isso esse catch vázio
-           */
+            /*Esperado é que o produto seja removido
+             *Por isso esse catch vázio
+             */
         }
         try {
             Collection<Produto> produtosRestantes = sistema.listarProdutos();
@@ -51,3 +51,4 @@ public class SistemaEstoqueTest {
 
     }
 }
+

@@ -14,7 +14,7 @@ public class TestaSistemaGUIV3 {
             sistema.recuperarDadosProdutos();
             JOptionPane.showMessageDialog(null,"Iniciando sistema...");
         }catch (IOException e){
-        JOptionPane.showMessageDialog(null,"Erro ao iniciar sistema...");
+            JOptionPane.showMessageDialog(null,"Erro ao iniciar sistema...");
         }
         JFrame janelaPrincipal = new SistemaGUIV3(sistema);
         janelaPrincipal.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -41,3 +41,4 @@ public class TestaSistemaGUIV3 {
         janelaPrincipal.setVisible(true);
     }
 }
+

@@ -10,12 +10,12 @@ public class GravadorDeDados {
         if (!arquivo.exists()){
             return new HashMap<>();
         }
-    try (ObjectInputStream in = new ObjectInputStream((new FileInputStream(ARQUIVO_PRODUTOS)))){
-        HashMap<String, Produto> produtos = (HashMap<String, Produto>) in.readObject();
-        return produtos;
-    }catch (ClassNotFoundException e){
-        throw  new IOException("Erro ao carregar arquivo de produtos"+ e.getMessage(), e);
-    }
+        try (ObjectInputStream in = new ObjectInputStream((new FileInputStream(ARQUIVO_PRODUTOS)))){
+            HashMap<String, Produto> produtos = (HashMap<String, Produto>) in.readObject();
+            return produtos;
+        }catch (ClassNotFoundException e){
+            throw  new IOException("Erro ao carregar arquivo de produtos"+ e.getMessage(), e);
+        }
     }
     public void salvarDadosProdutos(HashMap<String, Produto> produtos) throws IOException{
         File dir = new File("estoque");

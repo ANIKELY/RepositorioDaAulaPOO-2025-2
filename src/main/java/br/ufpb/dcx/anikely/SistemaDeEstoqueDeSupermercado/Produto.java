@@ -57,7 +57,7 @@ public class Produto implements Serializable {
     @Override
     public String toString (){
         return "Nome do produto: "+nome+ " Código: "+ codigo
-                + " Quantidade de itens: "+ quantidade;
+                + " Preço: "+preco+ " Quantidade de itens: "+ quantidade;
     }
 }
 
