@@ -20,11 +20,14 @@ Sistema desktop para gerenciamento de estoque de supermercado, com interface gr�
 -AmigoSecreto
 -Sistema para organização de sorteio de amigo secreto.
 
-HelloWorld
+###HelloWorld
 Projeto introdutório de Java.
 
-Tecnologias
+##Tecnologias
 Java 25+
 Swing (interface gráfica)
 JUnit 5 (testes)
 Serialização Java (persistência de dados)
+---
+**Autor**
+Anikely Santos da Silva
