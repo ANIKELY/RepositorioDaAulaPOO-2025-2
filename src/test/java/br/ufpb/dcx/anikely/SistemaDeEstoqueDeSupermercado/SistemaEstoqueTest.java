@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SistemaEstoqueTest {
     @Test
     public void testaCadastroAddListarBuscarRemocao () {
-        MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();
+        MeuSistemaDeEstoqueDeSupermercadoMap sistema = new MeuSistemaDeEstoqueDeSupermercadoMap();
         boolean cadastro1 = sistema.cadastrarProduto("Pippo's 75g", "1234", 3.50, 4);
         boolean cadastro2 = sistema.cadastrarProduto("Coca cola 250ml", "2345", 5.00,5);
         assertTrue (cadastro1);

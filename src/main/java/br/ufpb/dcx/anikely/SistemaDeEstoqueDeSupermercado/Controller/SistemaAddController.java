@@ -1,15 +1,15 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller;
 
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercado;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercadoMap;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SistemaAddController implements ActionListener {
-    private MeuSistemaDeEstoqueDeSupermercado sistema;
+    private MeuSistemaDeEstoqueDeSupermercadoMap sistema;
     private JFrame janelaPrincipal;
-    public SistemaAddController (MeuSistemaDeEstoqueDeSupermercado sistema, JFrame janela){
+    public SistemaAddController (MeuSistemaDeEstoqueDeSupermercadoMap sistema, JFrame janela){
         this.sistema = sistema;
         this.janelaPrincipal = janela;
     }

@@ -1,6 +1,6 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller;
 
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercado;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercadoMap;
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Produto;
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.ProdutoNaoEncontradoException;
 
@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 
 public class SistemaSearchController implements ActionListener {
-    private MeuSistemaDeEstoqueDeSupermercado sistema;
+    private MeuSistemaDeEstoqueDeSupermercadoMap sistema;
     private JFrame janelaPrincipal;
 
-    public SistemaSearchController(MeuSistemaDeEstoqueDeSupermercado sistema, JFrame janelaPrincipal){
+    public SistemaSearchController(MeuSistemaDeEstoqueDeSupermercadoMap sistema, JFrame janelaPrincipal){
         this.sistema = sistema;
         this.janelaPrincipal = janelaPrincipal;
     }

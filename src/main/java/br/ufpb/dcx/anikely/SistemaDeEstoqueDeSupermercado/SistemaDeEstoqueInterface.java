@@ -11,6 +11,6 @@ public interface SistemaDeEstoqueInterface {
     public Collection<Produto> pesquisarProdutoPorCodigo(String codigo) throws ProdutoNaoEncontradoException;
     public List<Produto> listarProdutos () throws ListaVaziaException;
     public void atualizarEstoque (String codigo, int novaQuantidade) throws AtualizacaoDeEstoqueException;
-    public double calcularValorTotalEstoque ();
+    public double calcularValorTotalEstoque () throws EstoqueVazioException;
     public void removerProduto (String codigo) throws ProdutoNaoRemovidoException, IOException;
 }

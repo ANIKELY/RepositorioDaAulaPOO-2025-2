@@ -9,10 +9,10 @@ import java.io.IOException;
 
 public class TestaSistemaGUIV3 {
     public static void main(String[] args) {
-        MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();
+        MeuSistemaDeEstoqueDeSupermercadoMap sistema = new MeuSistemaDeEstoqueDeSupermercadoMap();
         try {
             sistema.recuperarDadosProdutos();
-            JOptionPane.showMessageDialog(null,"Iniciando sistema...");
+            IO.println("Iniciando sistema...");
         }catch (IOException e){
             JOptionPane.showMessageDialog(null,"Erro ao iniciar sistema...");
         }

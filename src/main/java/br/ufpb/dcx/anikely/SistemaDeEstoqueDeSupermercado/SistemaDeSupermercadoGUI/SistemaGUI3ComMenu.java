@@ -1,7 +1,7 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoGUI;
 
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller.*;
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercado;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercadoMap;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ public class SistemaGUI3ComMenu extends JFrame {
     JLabel linha1, linha2, linha3;
     ImageIcon estoqueImg = new ImageIcon("./imgs/IconLogo1.png");
     ImageIcon estoqueImg2 = new ImageIcon("./imgs/IconLogo2.png");
-    MeuSistemaDeEstoqueDeSupermercado sistemaDeEstoqueDeSupermercado = new MeuSistemaDeEstoqueDeSupermercado();
+    MeuSistemaDeEstoqueDeSupermercadoMap sistemaDeEstoqueDeSupermercado = new MeuSistemaDeEstoqueDeSupermercadoMap();
     JMenuBar barra = new JMenuBar();
 
     public SistemaGUI3ComMenu(){
@@ -21,12 +21,9 @@ public class SistemaGUI3ComMenu extends JFrame {
         setResizable (false);
         getContentPane().setBackground(Color.BLACK);
 
-        linha1 = new JLabel("SEJA BEM VINDO(A)!", JLabel.CENTER);
-        linha1.setForeground(Color.CYAN);
-        linha1.setFont(new Font("Serif",Font.BOLD,24));
-        linha2 = new JLabel(estoqueImg, JLabel.CENTER);
-        linha3 = new JLabel(estoqueImg2, JLabel.CENTER);
-        setLayout (new GridLayout(3,1));
+        linha1 = new JLabel(estoqueImg, JLabel.CENTER);
+        linha2 = new JLabel(estoqueImg2, JLabel.CENTER);
+        setLayout (new GridLayout(4,2));
 
         add(linha1);
         add(linha2);
@@ -57,11 +54,17 @@ public class SistemaGUI3ComMenu extends JFrame {
         menuSair.add(menuSairSistema);
         menuSairSistema.addActionListener(new SistemaExitController(sistemaDeEstoqueDeSupermercado, this));
 
+        JMenu menuValorTotalEstoque = new JMenu ("Valor Total no Estoque");
+        JMenuItem menuValorTotalEstoqueProduto = new JMenuItem ("Valor Total de produtos no Estoque");
+        menuValorTotalEstoque.add(menuValorTotalEstoqueProduto);
+        menuValorTotalEstoqueProduto.addActionListener(new SistemaAddController(sistemaDeEstoqueDeSupermercado,this));
 
         barra.add(menuBuscar);
         barra.add(menuListar);
         barra.add(menuAdicionar);
         barra.add(menuRemover);
+        barra.add(menuValorTotalEstoque);
+        barra.add(menuSair);
 
         setJMenuBar(barra);
         setVisible(true);

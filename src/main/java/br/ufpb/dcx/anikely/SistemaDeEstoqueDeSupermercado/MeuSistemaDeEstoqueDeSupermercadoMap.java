@@ -2,11 +2,12 @@ package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class MeuSistemaDeEstoqueDeSupermercado implements SistemaDeEstoqueInterface {
+public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInterface {
     private HashMap<String,Produto> produtos;
     private GravadorDeDados gravador;
-    public MeuSistemaDeEstoqueDeSupermercado(){
+    public MeuSistemaDeEstoqueDeSupermercadoMap(){
         this.produtos = new HashMap<>();
         this.gravador = new GravadorDeDados();
     }
@@ -33,14 +34,9 @@ public class MeuSistemaDeEstoqueDeSupermercado implements SistemaDeEstoqueInterf
     }
     @Override
     public Collection<Produto> pesquisarProdutoPorCodigo (String codigo) throws ProdutoNaoEncontradoException{
-        Collection<Produto> resultado = new ArrayList<>();
-        for (Produto p : produtos.values()) {
-            if (p.getCodigo().equals(codigo)) {
-                resultado.add(p);
-            }
-        }
+        List<Produto> resultado = produtos.values().stream().filter(produto -> produto.getCodigo().equals(codigo)).collect(Collectors.toList());
         if (resultado.isEmpty()){
-            throw new ProdutoNaoEncontradoException("Produto com o código " +codigo + " não encontrado! :(");
+            throw new ProdutoNaoEncontradoException("Produto com o código "+codigo+" não encontrado! :(");
         }
         return resultado;
     }
@@ -61,10 +57,10 @@ public class MeuSistemaDeEstoqueDeSupermercado implements SistemaDeEstoqueInterf
         }
     }
     @Override
-    public double calcularValorTotalEstoque (){
-        double total = 0.0;
-        for (Produto p : produtos.values()) {
-            total += (p.getPreco() * p.getQuantidade());
+    public double calcularValorTotalEstoque () throws EstoqueVazioException{
+        double total= produtos.values().stream().mapToDouble(p -> p.getPreco() * p.getQuantidade()).sum();
+        if (total <= 0.0){
+            throw new EstoqueVazioException("Não há produtos no estoque para calcular os valores! :(");
         }
         return total;
     }

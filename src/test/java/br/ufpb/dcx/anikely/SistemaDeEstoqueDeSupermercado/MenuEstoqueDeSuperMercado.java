@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MenuEstoqueDeSuperMercado {
     public static void main (String [] args) {
-        MeuSistemaDeEstoqueDeSupermercado sistema = new MeuSistemaDeEstoqueDeSupermercado();
+        MeuSistemaDeEstoqueDeSupermercadoMap sistema = new MeuSistemaDeEstoqueDeSupermercadoMap();
 
         boolean sair = false;
         while (!sair){
@@ -86,7 +86,12 @@ public class MenuEstoqueDeSuperMercado {
                     }
                     break;
                 case 6 :
-                    double valorTotalDoEstoque = sistema.calcularValorTotalEstoque();
+                    double valorTotalDoEstoque = 0;
+                    try {
+                        valorTotalDoEstoque = sistema.calcularValorTotalEstoque();
+                    } catch (EstoqueVazioException e) {
+                        throw new RuntimeException(e);
+                    }
                     String total = String.format("%.2f",valorTotalDoEstoque);
                     JOptionPane.showMessageDialog(null, "Valor total do estoque:R$ "+ total);
                     break;
