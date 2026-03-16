@@ -21,8 +21,8 @@ public class SistemaGUIV3 extends JFrame {
     public SistemaGUIV3 (MeuSistemaDeEstoqueDeSupermercadoMap sistema) {
         this.sistemaDeEstoque = sistema;
 
-        EstoqueImg = redimensionarIcone("./imgs/IconLogo1.png", 450, 200);
-        EstoqueImg2 = redimensionarIcone("./imgs/IconLogo2.png",450,300);
+        EstoqueImg = redimensionarIcone("./imgs/IconLogo1.png", 500, 200);
+        EstoqueImg2 = redimensionarIcone("./imgs/IconLogo2.png",600,400);
         addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 500, 500);
         addList = redimensionarIcone("./imgs/IconListar.png", 500, 500);
         addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 500, 500);
@@ -68,10 +68,10 @@ public class SistemaGUIV3 extends JFrame {
         getContentPane().add(new JLabel());
         getContentPane().add(botaoBuscar);
 
-        getContentPane().add(linha1);
+        getContentPane().add(new JLabel());
         getContentPane().add(botaoListar);
 
-        getContentPane().add(new JLabel());
+        getContentPane().add((linha1));
         getContentPane().add(botaoAdicionar);
 
         getContentPane().add(linha2);
