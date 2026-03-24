@@ -7,7 +7,7 @@ public class Produto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     private String nome;
-    private final String codigo;
+    private String codigo;
     private double preco;
     private int quantidade;
 
@@ -36,9 +36,6 @@ public class Produto implements Serializable {
 
     public int getQuantidade (){return quantidade;}
 
-    public double calcularValorTotal (){
-        return preco * quantidade;
-    }
     @Override
     public int hashCode() {
         return codigo.hashCode();
