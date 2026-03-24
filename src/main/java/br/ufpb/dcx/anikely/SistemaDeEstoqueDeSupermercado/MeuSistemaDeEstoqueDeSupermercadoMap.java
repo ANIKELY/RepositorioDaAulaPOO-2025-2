@@ -51,7 +51,7 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
     public void atualizarEstoque (String codigo, int novaQuantidade) throws AtualizacaoDeEstoqueException {
         Produto p = produtos.get(codigo);
         if (p != null){
-            p.setQuantidade (novaQuantidade);
+            p.setQuantidade (p.getQuantidade() + novaQuantidade);
         }else{
             throw new AtualizacaoDeEstoqueException("Produto não encotrado!\n" + "Por favor tente novamente.");
         }
@@ -62,7 +62,9 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
         if (total <= 0.0){
             throw new EstoqueVazioException("Não há produtos no estoque para calcular os valores! :(");
         }
-        return total;
+        /*O Math.round está sendo utilizado pra
+        * retornar o total em duas casas decimais */
+        return Math.round (total * 100.00) / 100.00;
     }
     @Override
     public void removerProduto (String codigo) throws ProdutoNaoRemovidoException {
@@ -72,5 +74,20 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
             throw new ProdutoNaoRemovidoException("Produto com o código "+ codigo + "\n" +
                     " não encontrado para remoção! :( ");
         }
+    }
+    public void alteraPreco (String codigo, double novoPreco) throws ProdutoNaoEncontradoException{
+        Produto encontrado = produtos.get(codigo);
+        if (encontrado != null){
+            encontrado.setPreco(novoPreco);
+        }else{
+            throw new ProdutoNaoEncontradoException("Produto com o código "+codigo+"\n não encontrado!");
+        }
+    }
+    public boolean verificaEstoqueBaixo (String codigo, int quantMinima) throws ProdutoNaoEncontradoException{
+        Produto p = produtos.get(codigo);
+        if (p == null){
+            throw new ProdutoNaoEncontradoException("Produto não encontrado no estoque! ");
+        }
+        return p.getQuantidade() < quantMinima;
     }
 }

@@ -15,7 +15,7 @@ public class SistemaGUIV3 extends JFrame {
     ImageIcon addRemove;
     ImageIcon addCalculaTotal;
     ImageIcon IconExit;
-    JButton botaoBuscar, botaoListar, botaoAdicionar, botaoRemover,botaoCalculaValorTotalEstoque,botaoSair;
+    JButton botaoBuscar, botaoListar, botaoAdicionar, botaoRemover,botaoCalculaValorTotalEstoque,botaoBuscarPorNome,botaoSair;
     MeuSistemaDeEstoqueDeSupermercadoMap sistemaDeEstoque;
 
     public SistemaGUIV3 (MeuSistemaDeEstoqueDeSupermercadoMap sistema) {
@@ -24,6 +24,7 @@ public class SistemaGUIV3 extends JFrame {
         EstoqueImg = redimensionarIcone("./imgs/IconLogo1.png", 500, 200);
         EstoqueImg2 = redimensionarIcone("./imgs/IconLogo2.png",600,400);
         addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 500, 500);
+        //Adicionar icone de busca por nome
         addList = redimensionarIcone("./imgs/IconListar.png", 500, 500);
         addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 500, 500);
         addRemove = redimensionarIcone("./imgs/IconRemove.png", 500, 500);
@@ -38,7 +39,6 @@ public class SistemaGUIV3 extends JFrame {
 
         linha1 = new JLabel(EstoqueImg, JLabel.CENTER);
         linha2 = new JLabel(EstoqueImg2, JLabel.CENTER);
-
 
         botaoBuscar = new JButton(addBusca);
         botaoBuscar.addActionListener(new SistemaSearchController(sistemaDeEstoque,this));

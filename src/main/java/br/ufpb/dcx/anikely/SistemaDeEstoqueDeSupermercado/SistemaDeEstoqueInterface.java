@@ -13,4 +13,6 @@ public interface SistemaDeEstoqueInterface {
     public void atualizarEstoque (String codigo, int novaQuantidade) throws AtualizacaoDeEstoqueException;
     public double calcularValorTotalEstoque () throws EstoqueVazioException;
     public void removerProduto (String codigo) throws ProdutoNaoRemovidoException, IOException;
+    public void alteraPreco(String codigo, double novoPreco) throws ProdutoNaoEncontradoException;
+    public boolean verificaEstoqueBaixo (String codigo, int quantMinima) throws ProdutoNaoEncontradoException;
 }

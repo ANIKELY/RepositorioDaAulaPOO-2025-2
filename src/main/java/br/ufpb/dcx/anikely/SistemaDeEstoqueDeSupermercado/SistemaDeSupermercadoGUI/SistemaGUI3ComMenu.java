@@ -7,9 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SistemaGUI3ComMenu extends JFrame {
-    JLabel linha1, linha2, linha3;
-    ImageIcon estoqueImg = new ImageIcon("./imgs/IconLogo1.png");
-    ImageIcon estoqueImg2 = new ImageIcon("./imgs/IconLogo2.png");
+    JLabel linha1, linha2;
+    ImageIcon estoqueImg = new ImageIcon(new ImageIcon ("./imgs/IconLogo1.png").getImage().getScaledInstance(600, 300, Image.SCALE_SMOOTH));
+    ImageIcon estoqueImg2 = new ImageIcon(new ImageIcon ("./imgs/IconLogo2.png").getImage().getScaledInstance(600, 400, Image.SCALE_FAST));
     MeuSistemaDeEstoqueDeSupermercadoMap sistemaDeEstoqueDeSupermercado = new MeuSistemaDeEstoqueDeSupermercadoMap();
     JMenuBar barra = new JMenuBar();
 
@@ -23,12 +23,11 @@ public class SistemaGUI3ComMenu extends JFrame {
 
         linha1 = new JLabel(estoqueImg, JLabel.CENTER);
         linha2 = new JLabel(estoqueImg2, JLabel.CENTER);
-        setLayout (new GridLayout(4,2));
+        setLayout (new GridLayout(2,1));
 
         add(linha1);
         add(linha2);
-        add(linha3);
-        add(new JLabel());
+
         JMenu menuBuscar = new JMenu("Buscar");
         JMenuItem menuBuscarProduto = new JMenuItem("Buscar produtos");
         menuBuscar.add(menuBuscarProduto);
@@ -56,8 +55,13 @@ public class SistemaGUI3ComMenu extends JFrame {
 
         JMenu menuValorTotalEstoque = new JMenu ("Valor Total no Estoque");
         JMenuItem menuValorTotalEstoqueProduto = new JMenuItem ("Valor Total de produtos no Estoque");
-        menuValorTotalEstoque.add(menuValorTotalEstoqueProduto);
+        menuValorTotalEstoque.add(menuValorTotalEstoque);
         menuValorTotalEstoqueProduto.addActionListener(new SistemaAddController(sistemaDeEstoqueDeSupermercado,this));
+
+        JMenu verificaEstoque = new JMenu("Verificação de estoque baixo");
+        JMenuItem menuVerificaEstoque = new JMenuItem("Verificar estoque baixo");
+        menuVerificaEstoque.add(verificaEstoque);
+        menuVerificaEstoque.addActionListener(new SistemaVerifyStockController(sistemaDeEstoqueDeSupermercado,this));
 
         barra.add(menuBuscar);
         barra.add(menuListar);

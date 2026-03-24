@@ -33,6 +33,9 @@ public class Produto implements Serializable {
     public void setQuantidade (int quantidade){this.quantidade = quantidade;}
 
     public double getPreco (){return  preco;}
+    public void setPreco (double preco){
+        this.preco = preco;
+    }
 
     public int getQuantidade (){return quantidade;}
 
@@ -54,7 +57,7 @@ public class Produto implements Serializable {
     @Override
     public String toString (){
         return "Nome do produto: "+nome+ " Código: "+ codigo
-                + " Preço: "+preco+ " Quantidade de itens: "+ quantidade;
+                + " Preço: "+String.format("%.2f",preco)+ " Quantidade de itens: "+ quantidade;
     }
 }
 
