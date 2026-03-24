@@ -14,7 +14,7 @@ public class MenuSistema {
             sistema.recuperarDadosProdutos();
             IO.println("Iniciando sistema...");
         }catch (IOException e){
-            JOptionPane.showMessageDialog(null,"Erro ao iniciar sistema...");
+            IO.println("Erro ao iniciar sistema..." + "\n "+ e);
         }
         JFrame janelaPrincipal = new SistemaGUIV3(sistema);
         janelaPrincipal.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -30,9 +30,9 @@ public class MenuSistema {
                 if (resp == JOptionPane.YES_OPTION) {
                     try {
                         sistema.salvarDadosProdutos();
-                        JOptionPane.showMessageDialog(null,"Sistema finalizado e salvo com sucesso!");
+                        IO.println("Sistema finalizado e salvo com sucesso!");
                     }catch (IOException ex) {
-                        JOptionPane.showMessageDialog(null,"Erro ao salvar dados!" + "\n" + ex.getMessage());
+                        IO.println("Erro ao salvar dados!" + "\n" + ex.getMessage());
                     }
                     System.exit(0);
                 }

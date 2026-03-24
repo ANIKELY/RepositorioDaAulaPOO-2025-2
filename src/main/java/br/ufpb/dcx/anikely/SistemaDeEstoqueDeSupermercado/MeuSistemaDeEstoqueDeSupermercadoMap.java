@@ -40,6 +40,10 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
         }
         return resultado;
     }
+    /*
+    * o metódo listarProdutos @return um arrayList com uma lista
+    * de produtos encontrados no estoque.
+     */
     @Override
     public List<Produto> listarProdutos () throws ListaVaziaException {
         if (produtos.isEmpty()){
@@ -47,6 +51,12 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
         }
         return new ArrayList<>(produtos.values());
     }
+    /*
+    o metódo atualizarEstoque @return void pois só
+    é feita uma alteração no produto onde recebe
+    como paramêtro o código e a quantidade. É feita a procura na lista
+    no produto e altera a quantidade de produtos no estoque.
+     */
     @Override
     public void atualizarEstoque (String codigo, int novaQuantidade) throws AtualizacaoDeEstoqueException {
         Produto p = produtos.get(codigo);
