@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Aula11.11_POO_Anikely" />
+        <module name="SistemaDeEstoque" />
       </profile>
     </annotationProcessing>
   </component>

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dcx.ufpb.br</groupId>
-    <artifactId>Aula11.11_POO_Anikely</artifactId>
+    <artifactId>SistemaDeEstoque</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
