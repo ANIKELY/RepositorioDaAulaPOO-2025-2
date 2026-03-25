@@ -1,6 +1,7 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoGUI;
 
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.Controller.*;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.EstoqueVazioException;
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercadoMap;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ public class SistemaGUI3ComMenu extends JFrame {
 
     public SistemaGUI3ComMenu(){
         setTitle("Sistema de Estoque de Supermercado");
-        setSize (600,400);
+        setSize (700,600);
         setLocation (150,150);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable (false);
@@ -55,19 +56,34 @@ public class SistemaGUI3ComMenu extends JFrame {
 
         JMenu menuValorTotalEstoque = new JMenu ("Valor Total no Estoque");
         JMenuItem menuValorTotalEstoqueProduto = new JMenuItem ("Valor Total de produtos no Estoque");
-        menuValorTotalEstoque.add(menuValorTotalEstoque);
-        menuValorTotalEstoqueProduto.addActionListener(new SistemaAddController(sistemaDeEstoqueDeSupermercado,this));
+        menuValorTotalEstoque.add(menuValorTotalEstoqueProduto);
+        menuValorTotalEstoqueProduto.addActionListener(e ->{
+            try{
+                double total = sistemaDeEstoqueDeSupermercado.calcularValorTotalEstoque();
+                JOptionPane.showMessageDialog(this, "Valor total do estoque em R$ "+ String.format("%.2f",total),
+                        "Valor Total",JOptionPane.INFORMATION_MESSAGE);
+            }catch (EstoqueVazioException ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        });
 
-        JMenu verificaEstoque = new JMenu("Verificação de estoque baixo");
-        JMenuItem menuVerificaEstoque = new JMenuItem("Verificar estoque baixo");
-        menuVerificaEstoque.add(verificaEstoque);
+        JMenu verificaEstoque = new JMenu("Verificação de estoque");
+        JMenuItem menuVerificaEstoque = new JMenuItem("Checar estoque");
+        verificaEstoque.add(menuVerificaEstoque);
         menuVerificaEstoque.addActionListener(new SistemaVerifyStockController(sistemaDeEstoqueDeSupermercado,this));
+
+        JMenu menuAltera = new JMenu ("Alteração de preço");
+        JMenuItem menuAlteraPreco = new JMenuItem ("Alterar de preço");
+        menuAltera.add(menuAlteraPreco);
+        menuAlteraPreco.addActionListener(new SistemaAlteraPrecoController(sistemaDeEstoqueDeSupermercado,this));
 
         barra.add(menuBuscar);
         barra.add(menuListar);
         barra.add(menuAdicionar);
         barra.add(menuRemover);
         barra.add(menuValorTotalEstoque);
+        barra.add(menuVerificaEstoque);
+        barra.add(menuAlteraPreco);
         barra.add(menuSair);
 
         setJMenuBar(barra);

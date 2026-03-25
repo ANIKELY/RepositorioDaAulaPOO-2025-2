@@ -13,24 +13,27 @@ public class SistemaGUIV3 extends JFrame {
     ImageIcon addList;
     ImageIcon addAdicionar;
     ImageIcon addRemove;
+    ImageIcon addExit;
+    ImageIcon addAlteraPreco;
+    ImageIcon addVerificaEstoque;
     ImageIcon addCalculaTotal;
-    ImageIcon IconExit;
-    JButton botaoBuscar, botaoListar, botaoAdicionar, botaoRemover,botaoCalculaValorTotalEstoque,botaoBuscarPorNome,botaoSair;
+    JButton botaoBuscar, botaoListar, botaoAdicionar, botaoRemover,botaoCalculaValorTotalEstoque,botaoAlteraPreco,botaoVerifica,botaoSair;
     MeuSistemaDeEstoqueDeSupermercadoMap sistemaDeEstoque;
 
     public SistemaGUIV3 (MeuSistemaDeEstoqueDeSupermercadoMap sistema) {
         this.sistemaDeEstoque = sistema;
 
-        EstoqueImg = redimensionarIcone("./imgs/IconLogo1.png", 500, 200);
-        EstoqueImg2 = redimensionarIcone("./imgs/IconLogo2.png",600,400);
-        addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 500, 500);
-        //Adicionar icone de busca por nome
-        addList = redimensionarIcone("./imgs/IconListar.png", 500, 500);
-        addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 500, 500);
-        addRemove = redimensionarIcone("./imgs/IconRemove.png", 500, 500);
-        addCalculaTotal = redimensionarIcone("./imgs/IconCalculaTotal.png",500,500);
-        IconExit = redimensionarIcone("./imgs/IconExit.png",800,400);
-        setSize(700,600);
+        EstoqueImg = redimensionarIcone("./imgs/IconLogo1.png", 400, 200);
+        EstoqueImg2 = redimensionarIcone("./imgs/IconLogo2.png",500,300);
+        addBusca = redimensionarIcone("./imgs/IconDeBusca.png", 400, 400);
+        addList = redimensionarIcone("./imgs/IconListar.png", 400, 400);
+        addAdicionar = redimensionarIcone("./imgs/IconAdd.png", 400, 400);
+        addRemove = redimensionarIcone("./imgs/IconRemove.png", 400, 400);
+        addCalculaTotal = redimensionarIcone("./imgs/IconCalculaTotal.png",400,400);
+        addAlteraPreco = redimensionarIcone("./imgs/IconAlteraPreco.png", 400,400);
+        addVerificaEstoque = redimensionarIcone("./imgs/IconVerificaEstoqueBaixo.png",400,400);
+        addExit = redimensionarIcone("./imgs/IconExit.png",800,400);
+        setSize(800,600);
         setLocation(150,150);
         setResizable(false);
         getContentPane().setBackground(Color.BLACK);
@@ -60,11 +63,19 @@ public class SistemaGUIV3 extends JFrame {
         botaoCalculaValorTotalEstoque.addActionListener(new SistemaCalculaValorTotalEstoqueController(sistemaDeEstoque,this));
         botaoCalculaValorTotalEstoque.setBackground(Color.BLACK);
 
-        botaoSair = new JButton(IconExit);
+        botaoAlteraPreco = new JButton(addAlteraPreco);
+        botaoAlteraPreco.addActionListener(new SistemaAlteraPrecoController(sistemaDeEstoque,this));
+        botaoAlteraPreco.setBackground(Color.BLACK);
+
+        botaoVerifica = new JButton(addVerificaEstoque);
+        botaoVerifica.addActionListener(new SistemaVerifyStockController(sistemaDeEstoque,this));
+        botaoVerifica.setBackground(Color.BLACK);
+
+        botaoSair = new JButton(addExit);
         botaoSair.addActionListener(new SistemaExitController(sistemaDeEstoque,this));
         botaoSair.setBackground(Color.BLACK);
 
-        getContentPane().setLayout(new GridLayout(6,2,10,10));
+        getContentPane().setLayout(new GridLayout(8,3,10,10));
         getContentPane().add(new JLabel());
         getContentPane().add(botaoBuscar);
 
@@ -74,11 +85,17 @@ public class SistemaGUIV3 extends JFrame {
         getContentPane().add((linha1));
         getContentPane().add(botaoAdicionar);
 
-        getContentPane().add(linha2);
+        getContentPane().add(new JLabel());
         getContentPane().add(botaoRemover);
 
-        getContentPane().add(new JLabel());
+        getContentPane().add(linha2);
         getContentPane().add(botaoCalculaValorTotalEstoque);
+
+        getContentPane().add(new JLabel());
+        getContentPane().add(botaoAlteraPreco);
+
+        getContentPane().add(new JLabel());
+        getContentPane().add(botaoVerifica);
 
         getContentPane().add(new JLabel());
         getContentPane().add(botaoSair);
