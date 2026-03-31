@@ -12,6 +12,7 @@ public interface SistemaDeEstoqueInterface {
     public void removerFuncionario(String usuario) throws FuncionarioNaoRemovidoException;
     public boolean cadastrarProduto(String nome, String codigo, double preco, int quantidade);
     public boolean cadastrarFuncionario (String nome, String usuario, String senha, Cargo cargo);
+    public Funcionario autenticar (String usuario, String senha) throws LoginInvalidoException;
     public Collection<Produto> pesquisarProdutoPorCodigo(String codigo) throws ProdutoNaoEncontradoException;
     public List<Produto> listarProdutos () throws ListaVaziaException;
     public void atualizarEstoque (String codigo, int novaQuantidade) throws AtualizacaoDeEstoqueException;

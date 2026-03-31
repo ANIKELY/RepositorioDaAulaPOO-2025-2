@@ -114,6 +114,7 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
                     " não encontrado para remoção! :( ");
         }
     }
+    @Override
     public void alteraPreco (String codigo, double novoPreco) throws ProdutoNaoEncontradoException{
         Produto encontrado = produtos.get(codigo);
         if (encontrado != null){
@@ -122,6 +123,7 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
             throw new ProdutoNaoEncontradoException("Produto com o código "+codigo+"\n não encontrado!");
         }
     }
+    @Override
     public boolean verificaEstoqueBaixo (String codigo, int quantMinima) throws ProdutoNaoEncontradoException{
         Produto p = produtos.get(codigo);
         if (p == null){
@@ -129,6 +131,7 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
         }
         return p.getQuantidade() < quantMinima;
     }
+    @Override
     public Funcionario autenticar (String usuario, String senha) throws LoginInvalidoException{
         Funcionario funcionario = funcionarios.get(usuario);
         if (funcionario == null || !funcionario.getSenha().equals(senha)){
