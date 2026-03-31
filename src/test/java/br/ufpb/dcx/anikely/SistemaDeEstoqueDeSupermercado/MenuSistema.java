@@ -1,6 +1,6 @@
 package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoGUI.SistemaGUIV3;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoGUI.SistemaLoginGUI;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -16,7 +16,7 @@ public class MenuSistema {
         }catch (IOException e){
             IO.println("Erro ao iniciar sistema..." + "\n "+ e);
         }
-        JFrame janelaPrincipal = new SistemaGUIV3(sistema);
+        JFrame janelaPrincipal = new SistemaLoginGUI(sistema);
         janelaPrincipal.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         janelaPrincipal.addWindowListener(new WindowAdapter() {
             @Override

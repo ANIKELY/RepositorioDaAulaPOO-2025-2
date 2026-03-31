@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class GravadorDeDados {
     public static final String ARQUIVO_PRODUTOS = "ESTOQUE.dat";
+    public static final String ARQUIVO_FUNCIONARIOS = "FUNCIONARIOS.dat";
     public HashMap<String, Produto> recuperarDadosProdutos() throws IOException{
         File arquivo = new File(ARQUIVO_PRODUTOS);
         if (!arquivo.exists()){
@@ -24,6 +25,22 @@ public class GravadorDeDados {
         }
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(ARQUIVO_PRODUTOS))){
             out.writeObject (produtos);
+        }
+    }
+    public HashMap<String, Funcionario> recuperarDadosFuncionarios() throws IOException{
+        File arquivo = new File(ARQUIVO_FUNCIONARIOS);
+        if (!arquivo.exists()){
+            return new HashMap<>();
+        }try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(ARQUIVO_FUNCIONARIOS))){
+            HashMap<String, Funcionario> funcionarios = (HashMap<String, Funcionario>) in.readObject();
+            return funcionarios;
+        }catch (ClassNotFoundException e){
+            throw new IOException(("Erro ao carregar arquivo funcionário! "+ e.getMessage()));
+        }
+    }
+    public void salvarDadosFuncionarios(HashMap<String, Funcionario> funcionarios) throws IOException {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(ARQUIVO_FUNCIONARIOS))) {
+            out.writeObject(funcionarios);
         }
     }
 }

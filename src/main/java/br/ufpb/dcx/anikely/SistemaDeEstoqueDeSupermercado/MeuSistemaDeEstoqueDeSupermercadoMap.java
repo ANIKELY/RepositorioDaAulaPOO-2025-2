@@ -6,10 +6,20 @@ import java.util.stream.Collectors;
 
 public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInterface {
     private HashMap<String,Produto> produtos;
+    private HashMap<String, Funcionario> funcionarios;
     private GravadorDeDados gravador;
     public MeuSistemaDeEstoqueDeSupermercadoMap(){
         this.produtos = new HashMap<>();
+        this.funcionarios = new HashMap<>();
         this.gravador = new GravadorDeDados();
+        try{
+            recuperarDadosFuncionarios();
+        }catch(IOException e){
+            funcionarios = new HashMap<>();
+        }
+        if (funcionarios.isEmpty()){
+            funcionarios.put("admin", new Funcionario("Administrador", "admin","admin123",Cargo.ADMIN));
+        }
     }
     @Override
      public void salvarDadosProdutos() throws IOException {
@@ -23,12 +33,41 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
         }
     }
     @Override
+    public void salvarDadosFuncionarios() throws IOException {
+        gravador.salvarDadosFuncionarios(funcionarios);
+    }
+    @Override
+    public void recuperarDadosFuncionarios() throws IOException {
+         HashMap<String, Funcionario> funcionariosRecuperados = gravador.recuperarDadosFuncionarios();
+         if (funcionariosRecuperados != null){
+             funcionarios = funcionariosRecuperados;
+         }
+    }
+    @Override
+    public void removerFuncionario(String usuario) throws FuncionarioNaoRemovidoException{
+        if (funcionarios.containsKey(usuario)){
+            funcionarios.remove(usuario);
+        }else{
+            throw new FuncionarioNaoRemovidoException("Funicionário com o usuário "+usuario+ "\n não encontrado para a remoção!");
+        }
+    }
+    @Override
     public boolean cadastrarProduto (String nome, String codigo, double preco, int quantidade) {
         Produto cadastro = new Produto(nome, codigo, preco, quantidade);
         if (produtos.containsKey(codigo)){
             return false;
         }else{
             produtos.put(codigo, cadastro);
+            return true;
+        }
+    }
+    @Override
+    public boolean cadastrarFuncionario (String nome, String usuario, String senha, Cargo cargo) {
+        Funcionario cadastraFuncionario = new Funcionario(nome,usuario,senha, cargo);
+        if (funcionarios.containsKey(usuario)){
+            return false;
+        }else{
+            funcionarios.put(usuario, cadastraFuncionario);
             return true;
         }
     }
@@ -89,5 +128,12 @@ public class MeuSistemaDeEstoqueDeSupermercadoMap implements SistemaDeEstoqueInt
             throw new ProdutoNaoEncontradoException("Produto não encontrado no estoque! ");
         }
         return p.getQuantidade() < quantMinima;
+    }
+    public Funcionario autenticar (String usuario, String senha) throws LoginInvalidoException{
+        Funcionario funcionario = funcionarios.get(usuario);
+        if (funcionario == null || !funcionario.getSenha().equals(senha)){
+            throw new LoginInvalidoException("Usuário ou senhas inválidos!");
+        }
+        return funcionario;
     }
 }
