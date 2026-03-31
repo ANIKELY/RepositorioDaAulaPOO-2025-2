@@ -32,7 +32,7 @@ Um sistema de gerenciamento de estoque de supermercado que é desenvolvido em Ja
 1. Clone o repositório:
 git clone https://github.com/ANIKELY/RepositorioDaAulaPOO-2025-2.git
 2. Abra o projeto na sua IDE
-3. Localize a classe "MenuSistema" e execute o programa
+3. Localize a classe "MenuSistema" no pacote "GUI" e execute o programa
 4. Na exibição da tela de login, use as seguintes credenciais padrão:
    - Usuário: admin
    - Senha: admin123
