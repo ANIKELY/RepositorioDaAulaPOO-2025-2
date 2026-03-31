@@ -12,9 +12,9 @@ public class MenuSistema {
         MeuSistemaDeEstoqueDeSupermercadoMap sistema = new MeuSistemaDeEstoqueDeSupermercadoMap();
         try {
             sistema.recuperarDadosProdutos();
-            IO.println("Iniciando sistema...");
+            System.out.println("Iniciando sistema...");
         }catch (IOException e){
-            IO.println("Erro ao iniciar sistema..." + "\n "+ e);
+            System.out.println("Erro ao iniciar sistema..." + "\n "+ e);
         }
         JFrame janelaPrincipal = new SistemaLoginGUI(sistema);
         janelaPrincipal.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
