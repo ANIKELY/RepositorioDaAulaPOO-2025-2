@@ -1,0 +1,50 @@
+Análise de Coesão e Acoplamento
+
+## Coesão
+
+O sistema apresenta alta coesão, pois cada classe tem
+uma responsabilidade bem definida:
+
+- Produto — representa apenas um produto e seus dados
+- Funcionario — representa apenas um funcionário e seus dados
+- GravadorDeDados — responsável apenas por salvar e recuperar dados em arquivo
+- MeuSistemaDeEstoqueDeSupermercadoMap — concentra apenas a lógica de negócio do estoque
+- SistemaDeEstoqueInterface — define apenas o contrato do sistema
+- Cada controller é responsável por apenas uma ação específica
+
+## Acoplamento
+
+O sistema apresenta baixo acoplamento:
+
+- A interface SistemaDeEstoqueInterface funciona como um
+contrato, fazendo com que as classes dependam da interface
+e não da implementação
+- Os controllers dependem apenas da interface gráfica e da
+classe de sistema, sem conhecer detalhes internos
+- As exceptions personalizadas isolam o tratamento de erros
+- A classe GravadorDeDados é independente da lógica de
+negócio, podendo ser substituída sem impactar o restante
+
+## Bad Smells identificados e melhorias futuras
+
+### Já corrigidos
+- Código duplicado — métodos de salvar e recuperar
+centralizados na classe GravadorDeDados
+- Classe grande — lógica separada entre as classes
+de negócio e controllers
+- Intimidade inadequada — controllers acessam o sistema
+apenas por métodos públicos
+
+### Melhorias futuras
+- Senhas em texto puro — as senhas dos funcionários
+estão salvas sem criptografia, representando um risco
+de segurança
+- Método longo — o actionPerformed de alguns
+controllers poderia ser dividido em métodos menores
+- Números mágicos — valores como "admin" e
+"admin123" estão fixos no código e deveriam ser constantes
+- Tratamento de erros — alguns métodos poderiam ter
+tratamento de exceções mais robusto
+- Duplicação de lógica — os controllers de adicionar
+e remover funcionário repetem a lógica de autenticação
+do admin, que poderia ser extraída para um método separado
