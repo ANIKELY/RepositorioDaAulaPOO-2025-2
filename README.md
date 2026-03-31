@@ -3,12 +3,12 @@
 # Projeto a ser desenvolvido no RepositorioDaAulaPOO-2025-2
 Sistema-Estoque-Supermercado
 ## Descrição do projeto
-Um sistema de gerenciamento de estoque de supermercado que é desenvolvido em Java, com persistências de dados de arquivos e interface gráfica.
+Um sistema de gerenciamento de estoque de supermercado que é desenvolvido em Java, com persistência de dados de arquivos e interface gráfica.
 
 ## Tecnologias utilizadas
 - Java
 - Swing (interface gráfica)
-- Serialização de objetos (persistências)
+- Serialização de objetos (persistência)
 
 ## Funcionalidades do sistema
 - Cadastrar produtos
@@ -17,18 +17,25 @@ Um sistema de gerenciamento de estoque de supermercado que é desenvolvido em Ja
 - Atualizar estoque
 - Remover produto
 - Calcular valor total do estoque
+- Alterar preço de produto
+- Verificar estoque baixo
 - Salvar/recuperar dados em arquivo
+- Sistema de login integrado com autenticação de funcionários
+- Cadastrar e remover funcionários (apenas com o admin)
 
 ## Como executar 
 
 ### Pré-requisitos
 - Java JDK 25 instalado
-- 
+  
 ### Passos para conseguir executar o programa
 1. Clone o repositório:
-git clone https://github.com/ANIKELY/Sistema-Estoque-Supermercado.git
+git clone https://github.com/ANIKELY/RepositorioDaAulaPOO-2025-2.git
 2. Abra o projeto na sua IDE
-3. Por último, localize a classe "MenuSistema" e execute o programa
+3. Localize a classe "MenuSistema" e execute o programa
+4. Na exibição da tela de login, use as seguintes credenciais padrão:
+   - Usuário: admin
+   - Senha: admin123
 
 ## Autor
 Anikely Santos da Silva
