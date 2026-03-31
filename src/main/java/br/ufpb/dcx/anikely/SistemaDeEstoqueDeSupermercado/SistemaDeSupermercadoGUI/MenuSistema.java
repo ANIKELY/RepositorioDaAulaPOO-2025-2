@@ -1,6 +1,6 @@
-package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
+package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoGUI;
 
-import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.SistemaDeSupermercadoGUI.SistemaLoginGUI;
+import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.MeuSistemaDeEstoqueDeSupermercadoMap;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;

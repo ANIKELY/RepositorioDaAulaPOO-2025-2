@@ -1,4 +1,4 @@
-package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.testJunit;
+package br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado;
 
 import br.ufpb.dcx.anikely.SistemaDeEstoqueDeSupermercado.*;
 import org.junit.jupiter.api.BeforeEach;
