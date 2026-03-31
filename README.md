@@ -18,6 +18,8 @@ Um sistema de gerenciamento de estoque de supermercado que é desenvolvido em Ja
 - Remover produto
 - Calcular valor total do estoque
 - Salvar/recuperar dados em arquivo
+- Sistema de login intregado com autenticação de funcionários
+- Cadastrar e remover funcionários (apenas com o admin)
 
 ## Como executar 
 
@@ -28,7 +30,10 @@ Um sistema de gerenciamento de estoque de supermercado que é desenvolvido em Ja
 1. Clone o repositório:
 git clone https://github.com/ANIKELY/Sistema-Estoque-Supermercado.git
 2. Abra o projeto na sua IDE
-3. Por último, localize a classe "MenuSistema" e execute o programa
+3. Localize a classe "MenuSistema" e execute o programa
+4. Na exibição da tela de login, use as seguintes crediciais padrão:
+   - Usuário: admin
+   - Senha: admin123
 
 ## Autor
 Anikely Santos da Silva
